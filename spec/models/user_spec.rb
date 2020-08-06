@@ -10,10 +10,6 @@ RSpec.describe User, type: :model do
       it "全ての項目が存在すれば登録できる" do
         expect(@user).to be_valid
       end
-      it "名前の項目が存在すれば登録できる" do
-        @user.nickname = "ことり"
-        expect(@user).to be_valid
-      end
       it "名前のカナが存在し尚且つカタカタであれば登録できる" do
         @user.last_name_reading = "ヤマムラ"
         @user.first_name_reading = "ハナコ"
