@@ -63,7 +63,7 @@ belongs_to :user
 has_one    :purchase
 
 
-## address テーブル
+## addresses テーブル
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | postal_code      | string     | default: "", null: false       |
