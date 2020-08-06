@@ -66,7 +66,6 @@ has_one    :purchase
 ## address テーブル
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
-| item             | references | null: false, foreign_key: true |
 | postal_code      | string     | default: "", null: false       |
 | prefecture       | integer    | null: false                    |
 | city             | string     | default: "", null: false       |
@@ -87,3 +86,4 @@ has_one :purchase
 ### Association
 belongs_to :item
 belongs_to :user
+belongs_to :address
