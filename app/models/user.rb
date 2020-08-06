@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+    has_many :items
+    has_many :purchases
 
     alpha_num = /\A[a-z]+[0-9]+\z/i
     js = /\A[ぁ-んァ-ン一-龥]/
