@@ -1,2 +1,0 @@
-class ItemInfo < ApplicationRecord
-end
