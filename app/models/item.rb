@@ -6,12 +6,12 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :item_name, length: {maximum: 40}
     validates :item_detail, length: {maximum: 1000}
-    validates :item_category, numericality: { other_than: 1 }
-    validates :item_condition, numericality: { other_than: 1 }
-    validates :covered_shipping_by, numericality: { other_than: 1 }
-    validates :ship_from_location, numericality: { other_than: 1 }
-    validates :days_til_ship, numericality: { other_than: 1 }
-    validates :price, length: { minimum: 300, maximum: 9999999}
+    validates :item_category_id
+    validates :item_condition_id
+    validates :covered_shipping_by_id
+    validates :ship_from_location_id
+    validates :days_til_ship_id
+    validates :price, length: {mini: 300, maximum: 9999999}
   end
 
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -21,4 +21,3 @@ class Item < ApplicationRecord
     belongs_to_active_hash :ship_from_location
     belongs_to_active_hash :days_til_ship
 end
-

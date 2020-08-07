@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 2020_08_06_100343) do
   end
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
     t.string "postal_code", default: "", null: false
     t.integer "prefecture", null: false
     t.string "city", default: "", null: false
@@ -42,22 +44,22 @@ ActiveRecord::Schema.define(version: 2020_08_06_100343) do
     t.string "phone_number", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_addresses_on_item_id"
+    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "address_id", null: false
     t.string "item_name", null: false
     t.text "item_detail", null: false
-    t.integer "item_category", null: false
-    t.integer "item_condition", null: false
-    t.integer "covered_shipping_by", null: false
-    t.integer "ship_from_location", null: false
-    t.integer "days_til_ship", null: false
+    t.integer "item_category_id", null: false
+    t.integer "item_condition_id", null: false
+    t.integer "covered_shipping_by_id", null: false
+    t.integer "ship_from_location_id", null: false
+    t.integer "days_til_ship_id", null: false
     t.integer "price", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["address_id"], name: "index_items_on_address_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
@@ -80,6 +82,5 @@ ActiveRecord::Schema.define(version: 2020_08_06_100343) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "items", "addresses"
   add_foreign_key "items", "users"
 end
