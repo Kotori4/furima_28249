@@ -74,7 +74,6 @@ has_one    :purchase
 | building_unit    | string     |                                    |
 | phone_number     | string     |default: "", null: false            |
 
-<<<<<<< Updated upstream
 has_one :purchase
 
 ## purchases テーブル

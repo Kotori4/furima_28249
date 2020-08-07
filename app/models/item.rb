@@ -21,3 +21,4 @@ class Item < ApplicationRecord
     belongs_to_active_hash :ship_from_location
     belongs_to_active_hash :days_til_ship
 end
+
