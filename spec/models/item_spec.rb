@@ -69,7 +69,6 @@ RSpec.describe Item, type: :model do
       it "販売価格が10,000,000を超える金額だと保存ができない" do
         @item.price = 10000000
         @item.valid?
-        binding.pry
         expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
       end
     end
