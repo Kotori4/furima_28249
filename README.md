@@ -41,8 +41,6 @@ Things you may want to cover:
 has_many :items
 has_many :purchases
 
-
-
 ## items テーブル
 
 | Column               | Type       | Options                        |
@@ -60,7 +58,7 @@ has_many :purchases
 ### Association
 belongs_to :user
 has_one    :purchase
-
+has_one_attached :image
 
 ## addresses テーブル
 | Column           | Type       | Options                            |
