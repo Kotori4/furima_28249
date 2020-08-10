@@ -31,7 +31,6 @@ class ItemsController < ApplicationController
       redirect_to item_path
     else
       render 'edit'
-      # redirect_to edit_item_path(@item)
     end
   end
   
