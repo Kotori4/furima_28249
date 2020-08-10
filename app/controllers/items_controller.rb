@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
+
   def index
-    @item = Item.all.order("created_at DESC")
+    @items = Item.includes(:user).order("created_at DESC")
   end
   
   def new
@@ -19,9 +20,17 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
-
-  def show  
+  
+  def show 
+    @item = Item.find(params[:id])
+  end
+  
+  def destory
+    item = Item.find(params[:id])
+    item.destory
+    redirect_to root_path
   end
 
   private
