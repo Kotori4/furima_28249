@@ -4,7 +4,7 @@ class CreateAddresses < ActiveRecord::Migration[6.0]
       t.references :user, null: false
       t.references :item, null: false
       t.string :postal_code, default: "", null: false
-      t.integer :prefecture, null: false
+      t.integer :prefecture_id, null: false
       t.string :city, default: "", null: false
       t.string :address_line, default: "", null: false
       t.string :building_unit
