@@ -10,14 +10,9 @@ class TransactionInfo
     validates :phone_number
   end
 
-  # extend ActiveHash::Associations::ActiveRecordExtensions
-  # belongs_to_active_hash :prefecture_id
-
-
   def save
     Address.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, address_line: address_line, building_unit: building_unit, phone_number: phone_number, user_id: user_id, item_id: item_id)
     Purchase.create(item_id: item_id, user_id: user_id)
-    binding.pry
   end
 end
 
