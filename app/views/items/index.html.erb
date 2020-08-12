@@ -153,7 +153,7 @@
       <% @items.each do |item| %> 
         <li class='list'>
           <div class='item-img-content'>
-           <%= link_to item_path(item), method: :get do %>
+          <%= link_to item_path(item), method: :get do %>
             <%= image_tag item.image, class: "item-img" %>
               <% if item.purchase %>
               <div class='sold-out'>
@@ -175,8 +175,6 @@
           <% end %>
         </li>  
       <% end %>
-
-      
     <% else %>
         <li class='list'>
           <%= link_to '#' do %>
@@ -196,9 +194,9 @@
           <% end %>
         </li>
       <% end %>
-
     </ul>
   </div>
+  
   <%# //商品一覧 %>
 </div>
 <div class='purchase-btn'>

@@ -11,6 +11,7 @@ class TransactionsController < ApplicationController
   
   def create
     @purchase = TransactionInfo.new(purchase_params)
+    # binding.pry
     if @purchase.valid?
       pay_item
       @purchase.save

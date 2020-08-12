@@ -8,7 +8,7 @@ class CreateAddresses < ActiveRecord::Migration[6.0]
       t.string :city, default: "", null: false
       t.string :address_line, default: "", null: false
       t.string :building_unit
-      t.string :phone_number, default: "", null: false
+      t.string :phone_number, null: false
       t.timestamps
     end
   end
