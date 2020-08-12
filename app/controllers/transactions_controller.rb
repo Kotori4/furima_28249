@@ -1,17 +1,18 @@
 class TransactionsController < ApplicationController
+  before_action :set_item, only: [:new]
   before_action :login_check, only: [:index, :new, :create]
+  before_action :check_user, only: [:new]
+  before_action :check_purchased, only: [:new]
 
   def index
     @purchase = TransactionInfo.new
   end
   
   def new
-    @item = Item.find(params[:item_id])
   end
   
   def create
     @purchase = TransactionInfo.new(purchase_params)
-    # binding.pry
     if @purchase.valid?
       pay_item
       @purchase.save
@@ -37,12 +38,28 @@ class TransactionsController < ApplicationController
     )
   end
  
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
 
   def login_check
     unless user_signed_in?
       redirect_to new_user_session_path
     end
   end
+
+  def check_user
+    if current_user == @item.user
+      redirect_to root_path
+    end
+  end
+
+  def check_purchased
+    if @item.purchase
+      redirect_to root_path
+    end
+  end
+
 end
 
 

@@ -16,4 +16,3 @@ class TransactionInfo
   end
 end
 
-  
