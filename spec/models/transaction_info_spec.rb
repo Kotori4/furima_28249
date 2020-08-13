@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe TransactionInfo, type: :model do
-  describe "購入画面" do
+  describe "create" do
     before do
     @address = FactoryBot.build(:transaction_info)
     end
