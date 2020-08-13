@@ -33,6 +33,34 @@ RSpec.describe TransactionInfo, type: :model do
       end
     end
     describe '住所登録' do
+      it "都道府県が未選択では保存ができない" do
+        @address.prefecture_id = ""
+        @address.valid?
+        expect(@address.errors.full_messages).to include("Prefecture can't be blank")
+      end
+    end
+    describe '住所登録' do
+      it "市区町村が空では保存ができない" do
+        @address.city = ""
+        @address.valid?
+        expect(@address.errors.full_messages).to include("City can't be blank")
+      end
+    end
+    describe '住所登録' do
+      it "市区町村が半角文字では保存ができない" do
+        @address.city = "Hiroshima"
+        @address.valid?
+        expect(@address.errors.full_messages).to include("City is invalid")
+      end
+    end
+    describe '住所登録' do
+      it "住所詳細が半角文字では保存ができない" do
+        @address.address_line = ""
+        @address.valid?
+        expect(@address.errors.full_messages).to include("Address line can't be blank")
+      end
+    end
+    describe '住所登録' do
       it "電話番号は11桁以下でないと保存ができない" do
         @address.phone_number = "123456789012"
         @address.valid?
