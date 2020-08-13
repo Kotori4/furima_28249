@@ -25,7 +25,7 @@ class TransactionsController < ApplicationController
   private
 
   def purchase_params
-    params.permit(:token, :postal_code, :prefecture_id, :city, :address_line, :building_unit, :phone_number, :item_id ).merge(user_id: current_user.id)
+    params.permit(:postal_code, :prefecture_id, :city, :address_line, :building_unit, :phone_number, :item_id ).merge(user_id: current_user.id)
   end
 
   def pay_item
@@ -33,7 +33,7 @@ class TransactionsController < ApplicationController
     @item = Item.find(params[:item_id])
     Payjp::Charge.create(
       amount: @item.price,
-      card: purchase_params[:token],
+      card: params[:token],
       currency:'jpy'
     )
   end

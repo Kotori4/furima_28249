@@ -58,6 +58,7 @@ has_many :purchases
 ### Association
 belongs_to :user
 has_one    :purchase
+has_one    :address
 has_one_attached :image
 
 ## addresses テーブル
@@ -72,7 +73,8 @@ has_one_attached :image
 | building_unit    | string     |                                    |
 | phone_number     | string     |default: "", null: false            |
 
-has_one :purchase
+belongs_to :item
+belongs_to :user
 
 ## purchases テーブル
 
@@ -84,4 +86,3 @@ has_one :purchase
 ### Association
 belongs_to :item
 belongs_to :user
-belongs_to :address
