@@ -47,7 +47,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Covered shipping by can't be blank")
       end
       it "発送元の地域を未選択だと保存ができない" do
-        @item.ship_from_location_id = ""
+        @item.prefecture_id = ""
         @item.valid?
         expect(@item.errors.full_messages).to include("Ship from location can't be blank")
       end

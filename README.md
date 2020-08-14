@@ -51,7 +51,7 @@ has_many :purchases
 | item_category        | integer    | null: false                    |
 | item_condition       | integer    | null: false                    |
 | covered_shipping_by  | integer    | null: false                    |
-| ship_from_location   | integer    | null: false                    |
+| prefecture           | integer    | null: false                    |
 | days_til_ship        | integer    | null: false                    |
 | price                | integer    | null: false                    |
 
@@ -67,7 +67,7 @@ has_one_attached :image
 | user             | references | null: false, foreign_key: true     |
 | item             | references | null: false, foreign_key: true     |
 | postal_code      | string     | default: "", null: false           |
-| prefecture       | integer    | null: false                        |
+| prefecture_id    | integer    | null: false                        |
 | city             | string     | default: "", null: false           |
 | address_line     | string     | default: "", null: false           |
 | building_unit    | string     |                                    |
